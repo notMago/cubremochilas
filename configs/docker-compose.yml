@@ -1,12 +1,12 @@
 version: '3.8'
 services:
   frontend:
-    image: tu-imagen-frontend
+    build: ./frontend
     ports:
       - "80:80"
     networks:
       - backend-network
-  
+
   nginx:
     image: nginx:latest
     ports:
@@ -15,11 +15,26 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
     networks:
       - backend-network
-  
+
+  loadBalancer:
+    build: ./loadBalancer
+    depends_on:
+      - mysql
+    networks:
+      - backend-network
+
+  api:
+    build: ./api
+    depends_on:
+      - loadBalancer
+      - mysql
+    networks:
+      - backend-network
+
   mysql:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: 123456789
+      MYSQL_ROOT_PASSWORD: yazmin
       MYSQL_DATABASE: cubremochilas
     volumes:
       - mysql-data:/var/lib/mysql
