@@ -1,7 +1,10 @@
 version: '3.8'
+
 services:
+
   frontend:
-    build: ./frontend
+    build:
+      context: ../frontend
     ports:
       - "80:80"
     networks:
@@ -16,17 +19,19 @@ services:
     networks:
       - backend-network
 
-  loadBalancer:
-    build: ./loadBalancer
+  balancer:
+    build:
+      context: ../balancer
     depends_on:
       - mysql
     networks:
       - backend-network
 
   api:
-    build: ./api
+    build:
+      context: ../api
     depends_on:
-      - loadBalancer
+      - balancer
       - mysql
     networks:
       - backend-network
