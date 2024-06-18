@@ -12,7 +12,7 @@
     padding: 20px;
   }
   
-  .product-list, .stock-list {
+  .product-item, .stock-item {
     list-style-type: none;
     padding: 0;
   }
@@ -28,7 +28,7 @@
     margin: 0;
   }
   
-  .buy-button, stock-button {
+  .buy-button, .stock-button {
     background-color: #61dafb;
     border: none;
     padding: 10px 20px;
@@ -41,4 +41,20 @@
   .buy-button:hover, .stock-button:hover {
     background-color: #21a1f1;
   }
-  
+
+  .stock-container {
+    margin-top: 20px;
+  }
+
+  .stock-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stock-item {
+    width: 200px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }

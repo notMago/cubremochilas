@@ -3,14 +3,13 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-
   const [products, setProducts] = useState([]);
   const [stock, setStock] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/productos')
       .then(response => {
-        setProducts(response.data);
+           setProducts(response.data);
       })
       .catch(error => {
         console.error('There was an error fetching the products!', error);
@@ -44,16 +43,24 @@ function App() {
             </li>
           ))}
         </ul>
+
         <button className="stock-button" onClick={handleStockClick}>Consultar Stock</button>
         <h2>Stock de Productos</h2>
-        <ul className="stock-list">
-          {stock.map(item => (
-            <li key={item.id} className="stock-item">
-              <h3>{item.name}</h3>
-              <p>Stock: {item.stock}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="stock-container">
+          {stock.length === 0 ? (
+            <p>No hay información de stock disponible.</p>
+          ) : (
+            <ul className="stock-list">
+              {stock.map(item => (
+                <li key={item.id} className="stock-item">
+                  <h3>{item.name}</h3>
+                  <p>Color: {item.color}</p>
+                  <p>Stock: {item.stock}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </main>
     </div>
   );

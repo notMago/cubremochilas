@@ -36,6 +36,19 @@ app.get('/api/products', (req, res) => {
   });
 });
 
+// Definir una ruta para consultar el stock
+app.get('/api/stock', (req, res) => {
+    const query = 'SELECT id, nombre, color, stock FROM productos';
+    db.query(query, (err, results) => {
+      if (err) {
+        console.error('Error executing query:', err);
+        res.status(500).send('Internal server error');
+        return;
+      }
+      res.json(results);
+    });
+  });
+  
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
