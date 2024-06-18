@@ -1,0 +1,15 @@
+{
+    "name": "api",
+    "version": "1.0.0",
+    "description": "Backend API for the sales system",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "express": "^4.17.2",
+      "mysql2": "^2.3.3",
+      "cors": "^2.8.5"
+    }
+  }
+  
