@@ -12,32 +12,33 @@
     padding: 20px;
   }
   
-  .product-list {
+  .product-list, .stock-list {
     list-style-type: none;
     padding: 0;
   }
   
-  .product-item {
+  .product-item, .stock-item {
     border: 1px solid #ddd;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
   }
   
-  .product-item h3 {
+  .product-item h3, .stock-item h3 {
     margin: 0;
   }
   
-  button {
+  .buy-button, stock-button {
     background-color: #61dafb;
     border: none;
     padding: 10px 20px;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
   }
   
-  button:hover {
+  .buy-button:hover, .stock-button:hover {
     background-color: #21a1f1;
   }
   

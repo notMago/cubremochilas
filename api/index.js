@@ -25,7 +25,7 @@ db.connect(err => {
 
 // Definir una ruta para obtener los productos
 app.get('/api/products', (req, res) => {
-  const query = 'SELECT id, name, price FROM products'; // Asegúrate de que tu tabla se llame 'products'
+  const query = 'SELECT id, nombre, color, precio, stock FROM productos'; // Asegúrate de que tu tabla se llame 'productos'
   db.query(query, (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
